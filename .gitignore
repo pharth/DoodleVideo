@@ -1,0 +1,17 @@
+# Environment
+.env
+venv/
+__pycache__/
+*.pyc
+
+# Temporary files
+temp/
+
+# Output files
+output/*.mp4
+output/*.avi
+
+# Input files (optional - comment out if you want to track them)
+input/*.mp4
+input/*.avi
+input/*.mov
