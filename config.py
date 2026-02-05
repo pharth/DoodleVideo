@@ -16,7 +16,17 @@ TEMP_ORIGINAL_DIR = TEMP_DIR / "original"
 TEMP_SCRIBBLED_DIR = TEMP_DIR / "scribbled"
 
 # API Configuration
+# Try to get API key from environment first (local .env file)
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
+# If not found, try Streamlit secrets (for Streamlit Cloud deployment)
+if not GOOGLE_API_KEY:
+    try:
+        import streamlit as st
+        GOOGLE_API_KEY = st.secrets.get("GOOGLE_API_KEY")
+    except:
+        pass  # Not running in Streamlit context
+
 GEMINI_MODEL = "gemini-2.5-flash-image"  # Image-to-image generation model
 
 # Video Processing Settings
